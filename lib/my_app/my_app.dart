@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:islamiii_app/config/theme_manger.dart';
 import 'package:islamiii_app/core/route_manger.dart';
 import 'package:islamiii_app/presentation/screens/home/home_screen.dart';
+import 'package:islamiii_app/presentation/screens/quran_details/quran_details.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -12,8 +14,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         RouteManger.homeScreen:(_)=>HomeScreen(),
+        RouteManger.quranDetailsScreen:(_)=> QuranDetails(),
       },
       initialRoute: RouteManger.homeScreen,
+      theme: ThemeManger.lightTheme,
+      darkTheme: ThemeManger.darkTheme,
+      themeMode: ThemeMode.light,
     );}
       
 }

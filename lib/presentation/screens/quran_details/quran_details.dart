@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:islamiii_app/core/colors_manger.dart';
 import 'package:islamiii_app/core/image_manger.dart';
 import 'package:islamiii_app/core/text_manger.dart';
 import 'package:islamiii_app/presentation/screens/home/tabs/quran_tab/quran_tab.dart';
@@ -23,7 +22,8 @@ class _QuranDetailsState extends State<QuranDetails> {
     if(suranContent.isEmpty) loadSuraContent(quranModel.index);
     return Container(
       decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage(ImageManger.bgLight),
+        image: DecorationImage(image: AssetImage(
+          Theme.of(context).colorScheme.brightness == Brightness.light ? ImageManger.bgLight : ImageManger.bgDark),
         fit:BoxFit.cover)
       ),
       child: Scaffold(
@@ -44,7 +44,9 @@ class _QuranDetailsState extends State<QuranDetails> {
             borderRadius: BorderRadius.circular(25),
           ),
           child: Column(
-            children: [Text(quranModel.name , style: Theme.of(context).textTheme.titleMedium,),
+            children: [Text(quranModel.name , style: Theme.of(context).textTheme.titleMedium?.copyWith(
+              color: Theme.of(context).colorScheme.onSecondary,
+            ),),
             Divider(
               indent: width * 0.1
               ,
@@ -55,7 +57,8 @@ class _QuranDetailsState extends State<QuranDetails> {
               color: Theme.of(context).colorScheme.secondary,
             ))):
             Expanded(child: ListView.builder(itemBuilder: (context , index) => Text(suranContent[index] , 
-            style:Theme.of(context).textTheme.titleMedium?.copyWith(fontSize: 20) ,
+            style:Theme.of(context).textTheme.titleMedium?.copyWith(fontSize: 20 ,
+             color: Theme.of(context).colorScheme.onSecondary,) ,
             textDirection: TextDirection.rtl,
             textAlign: TextAlign.center,),
             itemCount: suranContent.length,)),

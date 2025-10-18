@@ -5,4 +5,5 @@ class TextManger {
   static String radioTab = 'Radio';
   static String sebhaTab = 'Sebha';
   static String settingTab = 'Seting';
+  static String hadithLabel ='El-ahadith';
 }

@@ -29,7 +29,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage(ImageManger.bgLight),
+        image: DecorationImage(image: AssetImage(
+         Theme.of(context).colorScheme.brightness == Brightness.light ? ImageManger.bgLight : ImageManger.bgDark),
         fit: BoxFit.cover)
       ),
       child: Scaffold(

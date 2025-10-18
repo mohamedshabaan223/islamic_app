@@ -6,5 +6,6 @@ class ImageManger {
   static String sebhaTab = 'assets/images/icon_sebha.png';
   static String quranHeader = 'assets/images/qur2an_screen_logo.png';
   static String hadithHeader = 'assets/images/hadeth_logo.png';
+  static String bgDark ='assets/images/dark_bg.png';
 }
 

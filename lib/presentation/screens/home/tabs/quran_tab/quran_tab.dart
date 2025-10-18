@@ -189,6 +189,7 @@ class _QuranTabState extends State<QuranTab> {
               ),
             ],
                  ),
+             if(virsesnum.isNotEmpty)   
            Align(
             alignment: Alignment.center,
             child: VerticalDivider(

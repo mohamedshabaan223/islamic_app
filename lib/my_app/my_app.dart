@@ -4,6 +4,8 @@ import 'package:islamiii_app/core/route_manger.dart';
 import 'package:islamiii_app/presentation/screens/hadith_details/hadith_details_screen.dart';
 import 'package:islamiii_app/presentation/screens/home/home_screen.dart';
 import 'package:islamiii_app/presentation/screens/quran_details/quran_details.dart';
+import 'package:islamiii_app/providers/setting_provider.dart';
+import 'package:provider/provider.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
       initialRoute: RouteManger.homeScreen,
       theme: ThemeManger.lightTheme,
       darkTheme: ThemeManger.darkTheme,
-      themeMode: ThemeMode.dark,
+      themeMode: Provider.of<SettingProvider>(context).appThemeMode,
     );}
       
 }

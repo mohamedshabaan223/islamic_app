@@ -42,7 +42,7 @@ class ThemeManger {
       error: ColorsManger.white,
       onError: ColorsManger.white,
       surface: ColorsManger.white,
-      onSurface: ColorsManger.white,
+      onSurface: ColorsManger.primarylight,
     ),
   );
   static ThemeData darkTheme = ThemeData(

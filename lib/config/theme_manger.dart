@@ -54,7 +54,7 @@ class ThemeManger {
       onSecondary: ColorsManger.gold,
       error: ColorsManger.white,
       onError: ColorsManger.white,
-      surface: ColorsManger.white,
+      surface: ColorsManger.black,
       onSurface: ColorsManger.white,
     ),
     scaffoldBackgroundColor: Colors.transparent,

@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       initialRoute: RouteManger.homeScreen,
       theme: ThemeManger.lightTheme,
       darkTheme: ThemeManger.darkTheme,
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.dark,
     );}
       
 }

@@ -22,8 +22,7 @@ class _QuranDetailsState extends State<QuranDetails> {
     if(suranContent.isEmpty) loadSuraContent(quranModel.index);
     return Container(
       decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage(
-          Theme.of(context).colorScheme.brightness == Brightness.light ? ImageManger.bgLight : ImageManger.bgDark),
+        image: DecorationImage(image: AssetImage( Theme.of(context).colorScheme.brightness == Brightness.light ? ImageManger.bgLight : ImageManger.bgDark),
         fit:BoxFit.cover)
       ),
       child: Scaffold(
@@ -44,9 +43,7 @@ class _QuranDetailsState extends State<QuranDetails> {
             borderRadius: BorderRadius.circular(25),
           ),
           child: Column(
-            children: [Text(quranModel.name , style: Theme.of(context).textTheme.titleMedium?.copyWith(
-              color: Theme.of(context).colorScheme.onSecondary,
-            ),),
+            children: [Text(quranModel.name , style: Theme.of(context).textTheme.titleMedium,),
             Divider(
               indent: width * 0.1
               ,
@@ -56,24 +53,13 @@ class _QuranDetailsState extends State<QuranDetails> {
             suranContent.isEmpty ? Expanded(child: Center(child: CircularProgressIndicator(
               color: Theme.of(context).colorScheme.secondary,
             ))):
-            Expanded(child: ListView(
-                    children: [
-                      RichText(
-                        textDirection: TextDirection.rtl,
-                        text: TextSpan(
-                          style:Theme.of(context).textTheme.titleMedium?.copyWith(fontSize: 20 ,
-             color: Theme.of(context).colorScheme.onSecondary,) ,
-                          children: suranContent.map((e) => TextSpan(
-                         children: [
-                          TextSpan(text: e ),
-                          TextSpan(text: '{${suranContent.indexOf(e)+1}} ')
-                         ]
-                          )).toList(),
-                        ))
-                    ],
-            ),),
+            Expanded(child: ListView.builder(itemBuilder: (context , index) => Text(suranContent[index] , 
+            style:Theme.of(context).textTheme.titleMedium?.copyWith(fontSize: 20) ,
+            textDirection: TextDirection.rtl,
+            textAlign: TextAlign.center,),
+            itemCount: suranContent.length,)),
             ],
-        
+          
           ),
         ),
       

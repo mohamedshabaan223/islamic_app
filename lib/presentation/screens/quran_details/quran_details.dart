@@ -56,14 +56,24 @@ class _QuranDetailsState extends State<QuranDetails> {
             suranContent.isEmpty ? Expanded(child: Center(child: CircularProgressIndicator(
               color: Theme.of(context).colorScheme.secondary,
             ))):
-            Expanded(child: ListView.builder(itemBuilder: (context , index) => Text(suranContent[index] , 
-            style:Theme.of(context).textTheme.titleMedium?.copyWith(fontSize: 20 ,
+            Expanded(child: ListView(
+                    children: [
+                      RichText(
+                        textDirection: TextDirection.rtl,
+                        text: TextSpan(
+                          style:Theme.of(context).textTheme.titleMedium?.copyWith(fontSize: 20 ,
              color: Theme.of(context).colorScheme.onSecondary,) ,
-            textDirection: TextDirection.rtl,
-            textAlign: TextAlign.center,),
-            itemCount: suranContent.length,)),
+                          children: suranContent.map((e) => TextSpan(
+                         children: [
+                          TextSpan(text: e ),
+                          TextSpan(text: '{${suranContent.indexOf(e)+1}} ')
+                         ]
+                          )).toList(),
+                        ))
+                    ],
+            ),),
             ],
-          
+        
           ),
         ),
       
@@ -71,9 +81,11 @@ class _QuranDetailsState extends State<QuranDetails> {
     );
   }
 
-  Future<void> loadSuraContent( int index ) async{
+   loadSuraContent( int index ) async{
     String data = await rootBundle.loadString('assets/quran/${index+1}.txt');
     suranContent = data.trim().split('\n');
+    suranContent.removeWhere((element) => element.trim().isEmpty,);
+
     setState(() {
       
     });

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islamiii_app/core/image_manger.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class SebhaTab extends StatefulWidget {
   const SebhaTab({super.key});
@@ -45,7 +47,7 @@ class _SebhaTabState extends State<SebhaTab> {
              SizedBox(
               height: size.height * 0.015,
             ),
-            Text('عدد التسبيحات' , style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),),
+            Text( AppLocalizations.of(context)!.numbersebha, style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),),
             
              SizedBox(
               height: size.height * 0.04,

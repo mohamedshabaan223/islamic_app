@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:islamiii_app/core/colors_manger.dart';
+import 'package:islamiii_app/providers/language_provider.dart';
 import 'package:islamiii_app/providers/setting_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class SettingTab extends StatelessWidget {
   const SettingTab({super.key});
@@ -9,6 +12,7 @@ class SettingTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<SettingProvider>(context);
+    var provider2 = Provider.of<LanguageProvider>(context);
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
@@ -17,7 +21,7 @@ class SettingTab extends StatelessWidget {
           inactiveThumbColor: ColorsManger.white,
           activeColor: ColorsManger.gold,
           inactiveTrackColor: ColorsManger.primarylight,
-          title: Text('ThemeAPP' , style: Theme.of(context).textTheme.titleMedium?.copyWith(
+          title: Text(AppLocalizations.of(context)!.theme , style: Theme.of(context).textTheme.titleMedium?.copyWith(
             color: Theme.of(context).colorScheme.onSecondary,
             fontWeight: FontWeight.w600,
           ),),
@@ -26,7 +30,7 @@ class SettingTab extends StatelessWidget {
           provider.themeAppMode(value ? ThemeMode.dark : ThemeMode.light);
          }),
          ListTile(
-          title: Text('Language', style: Theme.of(context).textTheme.titleMedium?.copyWith(
+          title: Text(AppLocalizations.of(context)!.language, style: Theme.of(context).textTheme.titleMedium?.copyWith(
             color: Theme.of(context).colorScheme.onSecondary,
             fontWeight: FontWeight.w600,),),
             trailing: DropdownButtonHideUnderline(
@@ -41,7 +45,7 @@ class SettingTab extends StatelessWidget {
                 child: DropdownButton<String>(
                   dropdownColor: Theme.of(context).colorScheme.primary,
                   borderRadius: BorderRadius.circular(15),
-                  value: provider.appLang,
+                  value: provider2.localapp,
                   items: [
                     DropdownMenuItem(
                       value: 'en',
@@ -54,7 +58,9 @@ class SettingTab extends StatelessWidget {
                         ),))
                   ],
                   onChanged: (value){
-                    provider.languageApp(value ?? 'en') ;
+                   if(value!=null){
+                    provider2.changeLangApp(value);
+                   }
                   }),
               ),
             ),

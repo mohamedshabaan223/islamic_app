@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islamiii_app/core/image_manger.dart';
 import 'package:islamiii_app/core/route_manger.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class QuranTab extends StatefulWidget {
  const QuranTab({super.key});
 
@@ -139,9 +141,9 @@ class _QuranTabState extends State<QuranTab> {
               Image.asset(ImageManger.quranHeader, height: hight * 0.29),
               Divider(height: 4,),
               Row(children: [
-                Expanded(child: Text('Suran Name' , textAlign: TextAlign.center,
+                Expanded(child: Text(AppLocalizations.of(context)!.suraname , textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),)),
-                Expanded(child: Text('Virses Count' , textAlign: TextAlign.center,
+                Expanded(child: Text(AppLocalizations.of(context)!.virsescount , textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600)
                 )),
               ],),

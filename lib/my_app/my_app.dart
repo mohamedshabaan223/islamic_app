@@ -4,9 +4,10 @@ import 'package:islamiii_app/core/route_manger.dart';
 import 'package:islamiii_app/presentation/screens/hadith_details/hadith_details_screen.dart';
 import 'package:islamiii_app/presentation/screens/home/home_screen.dart';
 import 'package:islamiii_app/presentation/screens/quran_details/quran_details.dart';
+import 'package:islamiii_app/providers/language_provider.dart';
 import 'package:islamiii_app/providers/setting_provider.dart';
 import 'package:provider/provider.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -24,6 +25,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeManger.lightTheme,
       darkTheme: ThemeManger.darkTheme,
       themeMode: Provider.of<SettingProvider>(context).appThemeMode,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      locale: Locale(Provider.of<LanguageProvider>(context).localapp),
     );}
       
 }

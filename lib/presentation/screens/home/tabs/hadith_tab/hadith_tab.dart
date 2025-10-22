@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:islamiii_app/core/image_manger.dart';
 import 'package:islamiii_app/core/route_manger.dart';
 import 'package:islamiii_app/core/text_manger.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class HadithTab extends StatefulWidget {
   const HadithTab({super.key});
@@ -22,7 +24,7 @@ class _HadithTabState extends State<HadithTab> {
     return Column(children: [
       Image.asset(ImageManger.hadithHeader , height: hight* 0.29,),
      Divider(height: 2,),
-     Center(child: Text(TextManger.hadithLabel ,
+     Center(child: Text(AppLocalizations.of(context)!.elhadith ,
      style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),)),
      Divider(height: 2,),
      hadethModelList.isEmpty ? Expanded(child: Center(child: CircularProgressIndicator(

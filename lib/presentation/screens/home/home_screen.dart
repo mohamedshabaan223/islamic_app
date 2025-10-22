@@ -6,6 +6,7 @@ import 'package:islamiii_app/presentation/screens/home/tabs/quran_tab/quran_tab.
 import 'package:islamiii_app/presentation/screens/home/tabs/radio_tab/radio_tab.dart';
 import 'package:islamiii_app/presentation/screens/home/tabs/sebha_tab/sebha_tab.dart';
 import 'package:islamiii_app/presentation/screens/home/tabs/setting_tab/setting_tab.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
  HomeScreen({super.key});
@@ -35,8 +36,8 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       child: Scaffold(
         appBar: AppBar(
-          title: Text(TextManger.appLabel),
-        ),
+          title: Text(AppLocalizations.of(context)!.islami,
+        ),),
         body: tabs[index],
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: index,
@@ -48,15 +49,15 @@ class _HomeScreenState extends State<HomeScreen> {
           },
           items: [
           BottomNavigationBarItem(icon: ImageIcon(AssetImage(ImageManger.quranTab)),
-          label: TextManger.quranTab),
+          label: AppLocalizations.of(context)!.quran),
           BottomNavigationBarItem(icon: ImageIcon(AssetImage(ImageManger.hadihTab)),
-          label: TextManger.hadithTab),
+          label: AppLocalizations.of(context)!.hadith),
           BottomNavigationBarItem(icon: ImageIcon(AssetImage(ImageManger.radioTab)),
-          label: TextManger.radioTab),
+          label: AppLocalizations.of(context)!.radio),
           BottomNavigationBarItem(icon: ImageIcon(AssetImage(ImageManger.sebhaTab)),
-          label: TextManger.sebhaTab),
+          label: AppLocalizations.of(context)!.sebha),
           BottomNavigationBarItem(icon: Icon(Icons.settings),
-          label: TextManger.settingTab),
+          label: AppLocalizations.of(context)!.setting),
         ]),
       ));
   }

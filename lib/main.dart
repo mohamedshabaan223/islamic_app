@@ -8,8 +8,8 @@ void main() {
   runApp(MultiProvider(
    
    providers: [
-    ChangeNotifierProvider(create: (context) => SettingProvider()),
-    ChangeNotifierProvider(create: (context)=> LanguageProvider()),
+    ChangeNotifierProvider(create: (context) => SettingProvider()..getThemeData()),
+    ChangeNotifierProvider(create: (context)=> LanguageProvider()..getLangData()),
    ],
     child: const MyApp()));
 }
